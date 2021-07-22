@@ -3,12 +3,11 @@
 		max-width: 960px
 	.promo
 		min-height: 590px		
-		.header
-			max-width: 800px
+		.header			
 			&__title
 				font-size: 34px
 				font-weight: 500
-				margin-top: 70px
+				margin-top: 165px
 			&__subtitle
 				margin-top: 7px
 				font-size: 22px
@@ -29,7 +28,7 @@
 	.advantages
 		padding-bottom: 50px
 		&__title
-			margin-top: 50px
+			margin-top: 165px
 			font-size: 27px
 		&__items
 			margin-top: 48px
@@ -45,21 +44,20 @@
 	.container
 		max-width: 720px	
 	.promo
-		.header
-			max-width: 652px			
+		.header			
 			&__logo
 				display: none
 			&__oficial
 				margin-right: 20px       
 			&_agent
-				font-size: 20px
-				font-weight: 500
+				font-size: 18px
+				font-weight: 400
 			&_brends
-				font-size: 22px
-				font-weight: 500
+				font-size: 18px
+				font-weight: 400
 			&__phone
-				font-size: 20px
-				font-weight: 500		
+				font-size: 18px
+				font-weight: 400		
 			&__title, &__subtitle
 				max-width: 380px
 				text-align: center
@@ -97,7 +95,7 @@
 			margin-top: 30px
 		&_block
 			margin-left: 15px	
-			margin-right: 65px			
+			margin-right: 78px			
 		&_wrapper
 			flex-direction: row
 			align-items: flex-end
@@ -110,12 +108,33 @@
 			margin-top: 30px
 			font-size: 20px
 			width: 220px
+		&__title
+			margin-top: 70px
+			font-size: 22px
+			font-weight: 600
+
+@media ( max-width:  768px)
+	.container			
+		max-width: 540px
+	.promo
+		min-height: 547px
+		.header
+			position: static
+			&__oficial
+				display: none
+			&__wrapper
+				flex-direction: column
+				min-height: 130px
+			&__title							
+				margin-top: 40px
+				font-size: 22px
+				height: 26px
+				//position: sticky
+				//top: 150px
+			&_descr
+				font-weight: 300
+			&__icons
+				max-width: 100%
+
 
 		
-		
-						
-			
-
-	
-
-				

@@ -1,17 +1,27 @@
 
 .promo		
-	width: 100%
-	padding-top: 1px	
+	position: relative	
 	background: url('../img/header_bg.jpg') center (center / cover) no-repeat
-	min-height: 650px
-	
-	.header						
-		display: flex
-		flex-direction: row
-		justify-content: space-around
-		align-items: center //выравнивает по вертикали
-		padding-top: 28px 
-		margin: auto
+	min-height: 650px	
+	padding-top: 1px
+
+
+	.header		
+		position: fixed	
+		top: 0
+		height: 90px
+		width: 100%
+		z-index: 100
+		//margin: 0 auto 0 auto		
+
+		&__wrapper									
+			display: flex
+			max-width: 940px
+			flex-direction: row
+			justify-content: space-between
+			align-items: center //выравнивает по вертикали
+			padding-top: 23px 
+			margin: auto
 
 		&__logo
 			max-width: 250px
@@ -58,8 +68,8 @@
 			font-size: 42px
 			font-weight: 700		
 			text-transform: uppercase	
-			text-align: right	
-			margin: 0px 100px 0 auto
+			text-align: right				
+			margin: 165px 100px 0 auto
 
 		&__subtitle
 			display: block
