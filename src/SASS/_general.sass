@@ -1,6 +1,6 @@
 
 	
-html
+*
 	box-sizing: border-box
 
 .container
@@ -16,7 +16,29 @@ html
 	text-align: center
 	margin: auto
 	text-transform: uppercase	
-	border: none							
+	border: none
+	cursor: pointer
+	&:hover
+		box-shadow: 0px 0px 20px 1px #353535
+
+.button.animate_btn
+	span				
+		position: relative
+		z-index: 100
+	&:before
+		left: -93%
+		top: 135%
+		border-radius: 5px
+		background-color: #ff0000 				
+		opacity: 1
+		transform: rotate(0deg)								
+		&:hover:before				
+			left: -10%
+			top: 0		
+		
+
+	
+
 
 
 

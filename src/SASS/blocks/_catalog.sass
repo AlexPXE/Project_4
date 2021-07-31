@@ -1,0 +1,151 @@
+.catalog
+	&__subtitle		
+		color: #0d0d0d		
+		font-size: 30px
+		font-weight: 700		
+		text-align: center
+		text-transform: uppercase	
+	&__nav
+		display: flex
+		list-style-type: none
+		justify-content: center
+		align-items: center		
+		margin-top: 69px
+	&__navtab
+		display: flex
+		margin: 0 10px
+		transform: skew(-.312rad)				
+		width: 220px
+		height: 50px
+		border: 2px solid #d0d0d0
+		color: #6b6b6b			
+		align-items: center
+		justify-content: center
+		cursor: pointer		
+		transition: 0.5s all
+		div
+			transform: skew(.312rad)
+			margin: auto 0 auto 0
+			text-align: center// Style for "для бега"			
+			font-size: 18px
+			font-weight: 500						
+			text-transform: uppercase	
+		&_active
+			color: #fff
+			background-color: #c70101
+			border: none
+		&:hover			
+			box-shadow: 3px 3px 20px #c70101
+			border: none	
+	&__units
+		display: none						
+		flex-wrap: wrap
+		//max-width: 945px
+		width: 960px
+		margin:  75px auto 0 auto
+	&__content_active
+		display: flex
+	&__item			
+		width: 300px		
+		min-height: 440px
+		margin-right: 20px
+		margin-bottom: 20px
+		border: 2px solid #e8e8e8
+		background-color: #ffffff	
+		padding: 15px 19px	27px 19px	
+		overflow: hidden
+		&:nth-child(3n)
+			margin-right: 0	
+	&__item-wrrap		
+		display: flex
+		width: calc(200% + 40px)	
+	&__item-content
+		width: 50%			
+		margin-right: 0px	
+		transform: translateX(-100%)
+		transition: 0.4s all						
+		img
+			display: block
+			max-width: 100%
+			height: 200px
+			margin: 0 auto		
+		&_active
+			transform: translateX(0%)
+			margin-right: 20px
+	&__item-list
+		width: 50%
+		margin-left: 20px
+		transform: translateX(0%)
+		transition: 0.4s all
+		ul
+			padding-left: 30px
+		li	
+			position: relative
+			list-style-type: none			
+			color: #555555			
+			font-size: 14px
+			font-weight: 300			
+			text-align: left												
+			margin-bottom: 20px
+			&::before
+				content: ''
+				display: block
+				position: absolute
+				width: 5px								
+				height: 5px
+				left: -18px				
+				top: 5px
+				background-color:  #c70101		
+		&_active
+			transform: translateX(-100%)
+			margin-left: 0px
+			padding-right: 19px
+	&__item-title		
+		color: #0d0d0d		
+		font-size: 16px
+		font-weight: 700		
+		text-align: center
+		margin-top: 20px
+	&__item-descr		
+		color: #0d0d0d		
+		font-size: 14px
+		font-weight: 400		
+		text-align: center
+		margin-top: 16px
+	&__item-more, .catalog__item-back		
+		display: block		
+		color: #c70101	
+		text-transform: uppercase			
+		font-size: 14px
+		font-weight: 500		
+		text-align: center
+		margin-top: 17px
+	&__item-footer
+		border-top: 1px solid #e8e8e8	
+		display: flex
+		justify-content: space-between
+		align-items: center
+		margin-top: 19px
+		padding-top: 21px 
+	&__sale				
+		color: #555555		
+		font-size: 14px
+		font-weight: 300		
+		text-align: left
+		text-decoration: line-through		
+	&__price				
+		color: #050505		
+		font-size: 20px
+		font-weight: 700		
+		text-align: left
+	&__btn
+		width: 131px
+		height: 40px	
+		margin: 0			
+		font-size: 14px
+		font-weight: 500				
+		
+				
+
+
+				

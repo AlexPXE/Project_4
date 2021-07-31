@@ -1,0 +1,25 @@
+.animate_btn, .animate_btn:before
+	-webkit-transition: all 0.5s 
+	transition: all 0.5s 
+	-webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59) 
+	transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59) 
+
+.animate_btn
+	margin: 0 10px 		
+	position: relative 
+	overflow: hidden 		
+	&:before 
+		top: 90% 
+		left: -110% 
+		content: '' 
+		width: 115% 
+		height: 115% 
+		position: absolute 			
+		-webkit-transform: rotate(45deg) 
+		transform: rotate(45deg) 		
+		background-color: #000000 			
+			
+
+.animate_btn:hover:before 
+	top: -10% 
+	left: -10% 
