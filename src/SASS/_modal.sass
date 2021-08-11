@@ -1,0 +1,43 @@
+.modal
+	position: absolute
+	display: flex
+	flex-direction: column
+	align-items: center
+	width: 380px
+	min-height: 400px
+	padding-bottom: 25px
+	top: 25%
+	left: 50%
+	transform: translateX(-50%)    
+	background-color: #f2f2f2	
+	&__close
+		position: absolute
+		font-size: 32px
+		font-weight: bold
+		line-height: 22px
+		cursor: pointer
+		color:  #ff00008e
+		border-radius: 100%
+		top: 0
+		right: -8%
+		transition: .6s all
+
+		&:hover
+			box-shadow: 0px 0px 15px 10px #ff0000
+			background-color: #ff0000
+			color:  #f2f2f2
+
+	&__descr        
+		margin-top: 38px
+		color: #0d0d0d		
+		font-size: 19px
+		font-weight: 700		
+		text-align: center
+	&__subtitle		
+			color: #0d0d0d			
+			font-size: 14px
+			font-weight: 500			
+			text-align: center			
+			margin-top: 15px
+	
+		

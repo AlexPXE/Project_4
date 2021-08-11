@@ -37,7 +37,7 @@
                             +7 (499) 922-89-74
                         </a>
 
-                        <button class="header__btncall button animate_btn ">
+                        <button data-modal="consultation" class="header__btncall button animate_btn ">
                             <span>заказать звонок</span> 
                         </button>
                     </div>
@@ -81,7 +81,7 @@
                 </div>
 
             </div>
-            <button class="animate_btn button header_request">
+            <button data-modal="consultation" class="animate_btn button header_request">
                 <span>заказать КОНСУЛЬТАЦИЮ</span>                
             </button>
 
@@ -157,7 +157,7 @@
         </div>
     </section>
 
-    <section class="consultation">
+    <section id="fff" class="consultation">
         <div class="container">
             <h2 class="consultation__title">
                 Получите бесплатную консультацию<br>
@@ -167,16 +167,19 @@
                 Просто заполните форму заявки<br>
                 и мы перезвоним вам в течении 10 минут
             </div>
+            <div class="consultation__form-wrapper">
+                <form class="feed__form" action="#">
+                    
+                    <input name="name" type="text" required placeholder="Ваше имя">
+                    <input name="phone" required  placeholder="Ваш телефон">
+                    <input name="email" type="email" required placeholder="Ваш E-майл">
 
-            <form class="feed-form" action="#">
-                <input name="name" required type="text" placeholder="Ваше имя">
-                <input name="tel" required type="number" placeholder="Ваш телефон">
-                <input name="email" required type="email" placeholder="Ваш E-майл">
-
-                <button class="animate_btn button button_consultation" type="submit">
-                    <span>заказать кОНСУЛЬТАЦИЮ</span>                    
-                </button>
-            </form>
+                    <button class="animate_btn button button_consultation" type="submit">
+                        <span>заказать кОНСУЛЬТАЦИЮ</span>                    
+                    </button>
+                </form>
+            </div>
+                
         </div>
     </section>
 
@@ -225,7 +228,7 @@
                             <img src="img/product_img.jpg" alt="item_img">
 
                             <div class="catalog__item-title">
-                                Пульсометр Polar FT1
+                                Пульсометр Polar M3
                             </div>
                             <div class="catalog__item-descr">
                                 Для первых шагов в тренировках, основанных на сердечном ритме
@@ -279,7 +282,7 @@
                             <img src="img/product_img.jpg" alt="item_img">
 
                             <div class="catalog__item-title">
-                                Пульсометр Polar FT1
+                                Пульсометр Polar Z4
                             </div>
                             <div class="catalog__item-descr">
                                 Для первых шагов в тренировках, основанных на сердечном ритме
@@ -1049,15 +1052,61 @@
                     Click Me!
                 </button>        
             </address>
-            
-
-
     </footer>
+
+        <div class="overlay">
+            <div class="modal" id="consultation">
+
+                <div class="modal__close">&times;</div>
+                <div class="modal__descr">Просто заполните форму заявки</div>
+                <div class="modal__subtitle">и мы перезвоним вам в течении 10 минут</div>
+
+                <form action="" class="feed__form">
+                    <input name="name" type="text" required placeholder="Ваше имя">
+                    <input name="phone" required  placeholder="Ваш телефон">
+                    <input name="email" type="email" required placeholder="Ваш E-майл">
+
+                    <button class="animate_btn button button_consultation" type="submit">
+                        <span>заказать кОНСУЛЬТАЦИЮ</span>                    
+                    </button>
+                </form>
+                
+            </div>
+
+            <div class="modal" id="order">
+                <div class="modal__close">&times;</div>
+                <div class="modal__descr">Ваш заказ:</div>
+                <div class="modal__subtitle">Пульсометр Polar FT1</div>
+
+                <form action="" class="feed__form">
+                    <input name="name" type="text" required placeholder="Ваше имя">
+                    <input name="phone" required  placeholder="Ваш телефон">
+                    <input name="email" type="email" required placeholder="Ваш E-майл">
+
+                    <button class="animate_btn button button_consultation" type="submit">
+                        <span>заказать кОНСУЛЬТАЦИЮ</span>                    
+                    </button>
+                </form>
+            </div>
+
+            <div class="modal" id="thanks">
+                <div class="modal__close">&times;</div>
+                <div class="modal__descr">Спасибо за вашу заявку!</div>
+                <div class="modal__subtitle">Наш менеджер свяжется с вами в ближайшее время!</div>                
+            </div>            
+        </div>
+
+        <a href="" class="pgup">
+            <img src="icons/up.svg" alt="pgup">
+        </a>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/cscript.js"></script>
+    
 </body>
 
 </html>

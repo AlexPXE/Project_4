@@ -43,12 +43,117 @@ $(document).ready(function(){
     toggleSlide('.catalog__item-more');
     toggleSlide('.catalog__item-back');
 
+
+
+    //modal
+
+    $('[data-modal=consultation]').on('click', function(){
+        $('.overlay, #consultation').fadeIn('slow');
+    });
+
+    $('.modal__close').on('click', function(){
+      $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+    });
+
+    $('.catalog__btn').each(function(i){
+      $(this).on('click', function(){
+        $('#order .modal__subtitle').text($('.catalog__item-title').eq(i).text())
+        $('.overlay, #order').fadeIn('slow');
+      });
+    });
+
   });
 
 
-var btn = document.getElementById('show');
-var nav = document.getElementById('nav');
+  var btn = document.getElementById('show');
+  var nav = document.getElementById('nav');
 
-btn.addEventListener('click', function() {
-nav.classList.toggle('active');
+  btn.addEventListener('click', function() {
+  nav.classList.toggle('active');
+
 });
+
+
+
+
+for(let item in (obj={ form_1: "#consultation form", form_2: "#order form", form_3: "#fff form" })){
+  $(obj[item]).validate({
+    rules:{
+            name: {
+              required: true,
+              minlength: 3,             
+            },
+            phone: "required",
+            email: {
+                    required: true,
+                    email: true,                  
+            }    
+       },
+       messages:{
+         name: {
+                required: "Быстро признался кто такой!", 
+                minlength: jQuery.validator.format("Мала букав, нннада хотябы {0}!"),
+         },
+         phone: {
+                  required: "Нет цЫфар-нет консультации!",
+                  phone: "цЫфрыыыы, цЫфры вводи!" 
+         },  
+          email:{
+                required: "ННАДА мыло!",
+                email: "хотябы @ вставь!",
+                
+          }
+       }
+  });
+
+};
+
+
+
+$('input[name=phone]').mask("+7 (999) 999-99-99");
+
+$('form').submit(function(e) {
+      e.preventDefault(); //отменить стандартное поведение браузера, чтобы после отправки данных формы страница не отправлялась
+      $.ajax({
+          type: "POST", //Отправить данные
+          url: "mailer/smart.php", //Обработчик
+          data: $(this).serialize() //работаем с данными текущей формы
+      }).done(function() {
+            $(this).find("input").val(""); //Очищаем инпуты формы
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn();
+            $('form').trigger('reset'); //Очистка всехформ
+
+            return false;
+      });
+});
+
+
+
+
+
+
+/*let a;
+let user = {
+ name: "John",
+ age: 30, 
+};
+
+user["like a birds"]=true;
+
+alert(user["like a birds"]);
+
+
+let s = Symbol();
+let b =user.name;
+alert(b);
+c="name";
+a= ([c] in user);
+alert(a);
+
+for(let key in user){
+  alert(key);
+}*/
+
+
+
