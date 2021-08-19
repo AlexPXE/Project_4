@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icons/heart-rate.png" type="image/x-icon">
     <link rel="stylesheet" href="CSS/fonts.css">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/slick.css">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-    <section class="promo">
+    <section id="up" class="promo">
         <header class="header">
             <div class="container">
                 <div class="header__wrapper">
@@ -1096,15 +1097,21 @@
             </div>            
         </div>
 
-        <a href="" class="pgup">
+        <a href="#up" class="pgup">
             <img src="icons/up.svg" alt="pgup">
         </a>
+
+
+        <!-- <canvas id="stockGraph" width="640" height="480"> -->
+            
+        </canvas>
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/graph.js"></script>
     <script src="js/cscript.js"></script>
     
 </body>
