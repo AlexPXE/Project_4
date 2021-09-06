@@ -102,7 +102,7 @@
             <div class="advantages__items">
                 <div class="advantages_wrapper">
 
-                    <div class="advantages_icons">
+                    <div class="advantages_icons advantages_icons__animate-cup">
                         <img src="./icons/adv_cup_ico.png" alt="cup">
                     </div>
                     <div class="advantages_block">
@@ -119,7 +119,7 @@
 
 
                 <div class="advantages_wrapper">
-                    <div class="advantages_icons">
+                    <div class="advantages_icons advantages_icons__animate">
                         <img src="./icons/adv_heart_ico.png" alt="hert">
                     </div>
 
@@ -137,7 +137,7 @@
                 </div>
 
                 <div class="advantages_wrapper">
-                    <div class="advantages_icons">
+                    <div class="advantages_icons advantages_icons__animate-shoe">
                         <img src="./icons/adv_shoe_ico.png" alt="shoe">
                     </div>
 
@@ -945,21 +945,21 @@
         <div class="container">
             <h2 class="review__title">отзывы клиентов</h2>
             <div class="review__wrapper">
-                <div class="review__item">
+                <div class="review__item" >
 
-                    <img src="img/review_irina_img.png" alt="" class="review__img">
+                    <img id="item_1_img" src="img/review_irina_img.png" alt="" class="review__img">
 
 
                     <div class="review__info">
 
-                        <div class="review__nameruner">
+                        <div id="item_1_name" class="review__nameruner">
                             Ирина Иванченко
                         </div>
-                        <div class="review__achievements">
+                        <div id="item_1_achievements" class="review__achievements">
                             2 полумарафона
                         </div>
 
-                        <div class="review__text">
+                        <div id="item_1_text" class="review__text">
                             Не знала, что себе купить - обратилась к ребятам из RunSmart - подобрали пульсометр,
                             который подошёл именно под мои цели и финансовые возможности.
                             Через некоторое время решила обновить гаджет - не раздумывая обратилась туда же.
@@ -974,7 +974,7 @@
 
                 <div class="review__item">
 
-                    <img src="img/review_ivan_img.png" alt="" class="review__img">
+                    <img id = "item_2_img" src="img/review_ivan_img.png" alt="" class="review__img">
 
 
                     <div class="review__info">
@@ -986,7 +986,7 @@
                             1 полумарафона
                         </div>
 
-                        <div class="review__text">
+                        <div id="item_2_text" class="review__text">
                             Крутая штука-пульсометр. Обычно без них бегал. Оказывается только хуже себе делал.
                             Купил пульсометр, ещё в подарок получил тренировку. Со мной вместе провели первую
                             тренировку, научили пользоваться новым гаджетом. Также объяснили основы анатомии, составили
@@ -1000,7 +1000,7 @@
                     </div>
                 </div>
 
-                <div class="review__item">
+                <div id = "review_3_item" class="review__item">
 
                     <img src="img//review_julia_img.png" alt="" class="review__img">
 
@@ -1102,7 +1102,7 @@
         </a>
 
 
-        <!-- <canvas id="stockGraph" width="640" height="480"> -->
+        <canvas id="stockGraph" width="640" height="480">
             
         </canvas>
 
@@ -1111,7 +1111,8 @@
     <script src="js/slick.min.js"></script>
     <script src="js/jquery.validate.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
-    <script src="js/graph.js"></script>
+    <!-- <script src="js/graph.js"></script> -->
+    <script src="js/letsanimate.js"></script>
     <script src="js/cscript.js"></script>
     
 </body>

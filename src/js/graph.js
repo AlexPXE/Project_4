@@ -586,17 +586,83 @@ makeObj: function( x, y, r ) {
 	},
 
 
-}
+};
 
 
 graphCanvas.initGraphCanvas('stockGraph');
-graphCanvas.canvas.addEventListener('click', function(e) {
+
+//Слушаем клик по canvas
+/*graphCanvas.canvas.addEventListener('click', function(e) {
 	let ccc = graphCanvas.getCursorPosition(graphCanvas.canvas, e);
 	graphCanvas.makeObj(ccc.x, ccc.y, 20);	
+});*/
+
+
+/*
+
+graphCanvas.drawLine({
+	
+		x: 0,
+		y:240,
+}, 
+
+{
+		x: 640,
+		y: 240,
 });
 
+graphCanvas.drawLine({
+	
+	x: 320,
+	y:0,
+}, 
+
+{
+	x: 320,
+	y: 480,
+});*/
+
+//===========================================================
+/*
+
+let Ox = 320;
+let Oy = 240;
+
+let gr = function( beginX, endX ) {				
+	
+	context = graphCanvas.context;
+	context.moveTo( Ox, Oy );
+	context.beginPath();
+	
+
+	let step = 8 * Math.PI / 200; 
+	
+	let y = 0;
+	let ampl = 50;
 
 
+	
+	for(let x = beginX; x <= endX; x++) {
+		
+		console.log(y);
+		context.lineTo( Ox + x, Oy + ampl*Math.sin(y));
+		//context.arc( 15*x, Oy + 100*Math.sin(x/Math.PI), 4, 0, Math.PI*2);	
+		y = y + step;
+		
+		
+	}
+	
+	context.stroke();		
+}
+
+gr(0, 200);
+*/
+//===========================================================================
+
+
+
+//======================================================================
+/*
 
 let a = 0.7;
 let b = 0.3;
@@ -689,16 +755,107 @@ function tick() {
 	}
 
 	
+
+}
+*/
+//========================================================================================
+
+
+////Балавство с canvas
+
+function animate({drawAxis, drawSin, drawRotateLine, drawUpDownLine, context}) {	
+	
+	//Координаты центра осей
+	Ox = 320; 
+	Oy = 240;	
+	rotateSpeedRad = Math.PI/90; //скорость в радианах
+	y = 0;
+	x = 0;
+	amplR = 80; //амплитуда - радиус
+	progress = 0; //смещение в радианах
+	context = context; //Контекст canvas
+
+	requestAnimationFrame(function animate() {
+		context.clearRect(0, 0, 640, 480);			
+		//console.log(tick);			
+
+		//Отрисовка анимации
+		/*
+			drawRotateLine() рисует вращающуся линию и передает координаты (+ context)
+			своей крайней точки в функцию drawUpDownLine(), которая рисует линию начиная
+			от переданных ей координат до оси y паралельно оси x и далее передает ссылку
+			на context в функцию drawSin(), та в свою очередь отрисовывает синусоиду со 
+			смещением на progress радиан синхронизируясь тем самым с вращающейся линией.
+		*/
+
+		//Отрисовка осей
+
+		
+		drawAxis(context);
+
+		drawSin(drawUpDownLine(drawRotateLine(context)));			
+
+		progress = progress + (-1)*rotateSpeedRad;	//Умножаем на -1 чтобы изменить направление вращения	
+		y = amplR*Math.sin(progress);
+		x = amplR*Math.cos(progress);
+		amplR = amplR + Math.sin(progress);		
+		requestAnimationFrame(animate);
+		
+	});
 }
 
 
 
+animate({
+	drawAxis: function(context) {
+		//Оси x, y
+		context.beginPath();
+		context.moveTo(Ox, 0);
+		context.lineTo(Ox, Oy*2);
+		context.stroke();
 
+		context.beginPath();
+		context.moveTo(0, Oy);
+		context.lineTo(Ox*2, Oy);
+		context.stroke();
 
+		//Окружнось
+		context.beginPath();
+		context.arc(Ox-amplR, Oy, amplR, 0, Math.PI*2);
+		context.stroke();
+	},
+	drawSin: function(context){	
+		
+		
+		//options.context.beginPath();		
+		let sinY = 0;
+		context.beginPath();
+		for(let i = 0; i < 180; i++) {
+			context.lineTo(Ox + i, Oy +  amplR * Math.sin(sinY + progress));
+			sinY = sinY + 0.10;
+		}
+		context.stroke();
+	}, 
+	drawRotateLine: function(context){
 
-/*let canvas = document.getElementById('stockGraph');
-let context = canvas.getContext('2d');
+		let Cx = Ox - amplR; //Смещаем центр вращения по x на величину радиуса
+		let toX = Cx + x;    //координата x конца вращающейся линии
+		let toY = Oy + y;    //Координата y конца вращающейся линии
+		context.beginPath();
+		context.moveTo(Cx, Oy);
+		context.lineTo(toX, toY)		
+		context.stroke();		
 
-context.beginPath();
-context.arc(75, 75, 30, 0, Math.PI * 2, true); // Outer circle
-context.stroke();*/
+		return {toX, toY, context}
+	}, 
+	drawUpDownLine: function(start){
+		start.context.beginPath();			
+		start.context.moveTo(start.toX, start.toY);
+		start.context.lineTo(Ox, start.toY)
+		start.context.stroke();
+
+		return start.context;
+	}, 
+	context: graphCanvas.context
+});
+

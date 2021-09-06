@@ -21,6 +21,7 @@
 		flex-direction: column
 		justify-content: flex-end
 		align-items: center
+		
 	&_header
 		width: 200px		
 		color: #0d0d0d		
@@ -40,11 +41,40 @@
 		margin-top: 12px	
 		a
 			color: #ff0000
-		
-				
-		
-		
-		
-		
+	
+	&_icons__animate
+		animation: 
+			name: heartbeat
+			duration: 2s
+			timing-function: ease-in
+			iteration-count: infinite
+			//delay:			
+			//direction:
+			//fill-mode:
+		&:hover
+			animation-play-state: paused
+	&_icons__animate-cup
+		animation: 
+			name: cup
+			duration: 2s
+			timing-function: ease-in
+			iteration-count: infinite
+			//delay: 6s
+			//direction:
+			//fill-mode:
+		&:hover
+			animation-play-state: paused
+
+	&_icons__animate-shoe
+		animation: 
+			name: shoe
+			duration: 4s
+			timing-function: ease-in
+			iteration-count: infinite
+			//delay: 6s
+			//direction:
+			//fill-mode:
+		&:hover
+			animation-play-state: paused
 
 		
